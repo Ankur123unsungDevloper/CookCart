@@ -14,7 +14,7 @@ const Navbar = () => {
     <div
       className={cn(
         "fixed top-0 left-0 z-10000 w-full py-1 px-2 flex flex-row justify-between items-center transition duration-500 bg-transparent",
-        scrolled && "shadow-4xl backdrop-blur-2xl"
+        scrolled && "shadow-2xl backdrop-blur-2xl bg-black/20", 
       )}
     >
       <Logo />
