@@ -14,7 +14,7 @@ const Hero = () => {
           <p className="font-medium text-[#555]">
             Ever felt the struggle of choosing between fast food convenience and a home-cooked healthy meal? You’re not alone. Students living away from home, working professionals with busy schedules, and even families often face the daily challenge of finding food that is not just tasty but also wholesome.
             <br/><br />
-            That’s where CookCart steps in. We bridge the gap between kitchens that love to cook and people who long for nutritious, home-style meals. No complicated choices, no hidden compromises—just simple, freshly made food crafted with care and delivered straight to your doorstep.
+            That’s where <span className="font-bold text-xl">CookCart</span> steps in. We bridge the gap between kitchens that love to cook and people who long for nutritious, home-style meals. No complicated choices, no hidden compromises—just simple, freshly made food crafted with care and delivered straight to your doorstep.
             <br/><br />
             Our mission is to make healthy eating accessible for everyone while supporting local chefs and home cooks. Because we believe food isn’t just about filling your stomach—it’s about feeling good, staying energized, and connecting with the warmth of a real kitchen.
           </p>
