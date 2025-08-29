@@ -1,10 +1,9 @@
-/* eslint-disable @next/next/no-html-link-for-pages */
-"use client"
+"use client";
 
-import * as React from "react"
-import Link from "next/link"
-import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from "lucide-react"
+import * as React from "react";
+import Link from "next/link";
 
+import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -13,7 +12,12 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
+} from "@/components/ui/navigation-menu";
+
+import { PiBookOpenLight } from "react-icons/pi";
+import { IoDocumentTextOutline } from "react-icons/io5";
+import { TbTargetArrow } from "react-icons/tb";
+import { BsCalendarDate } from "react-icons/bs";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -55,43 +59,150 @@ const components: { title: string; href: string; description: string }[] = [
 
 export function NavigationMenuListItems() {
   return (
-    <NavigationMenu viewport={false}>
+    <NavigationMenu className="hidden lg:flex relative left-5">
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger>Home</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-              <li className="row-span-3">
-                <NavigationMenuLink asChild>
-                  <a
-                    className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none focus:shadow-md"
-                    href="/"
-                  >
-                    <div className="mt-4 mb-2 text-lg font-medium">
-                      shadcn/ui
-                    </div>
-                    <p className="text-muted-foreground text-sm leading-tight">
-                      Beautifully designed components built with Tailwind CSS.
+            <div className="flex">
+              <ul className="grid p-2 md:w-[400px] lg:w-[240px] hover:cursor-pointer border-r">
+                <div className="flex items-center gap-1 hover:bg-gray-400/10 p-1 rounded-sm">
+                  <IoDocumentTextOutline className="text-2xl mr-2 text-yellow-500" />
+                  <div>
+                    <a>Docs</a>
+                    <p className="text-gray-400 text-sm font-light">
+                      Simple & powerful
                     </p>
-                  </a>
-                </NavigationMenuLink>
-              </li>
-              <ListItem href="/docs" title="Introduction">
-                Re-usable components built using Radix UI and Tailwind CSS.
-              </ListItem>
-              <ListItem href="/docs/installation" title="Installation">
-                How to install dependencies and structure your app.
-              </ListItem>
-              <ListItem href="/docs/primitives/typography" title="Typography">
-                Styles for headings, paragraphs, lists...etc
-              </ListItem>
-            </ul>
+                  </div>
+                </div>
+                <div className="flex  items-center gap-1 hover:bg-gray-400/10 p-1 rounded-sm">
+                  <PiBookOpenLight className="text-2xl mr-2 text-red-500" />
+                  <div>
+                    <a>Wikis</a>
+                    <p className="text-gray-400 text-sm font-light">
+                      Centralize your knowledge
+                    </p>
+                  </div>
+                </div>
+                <div className="flex  items-center gap-1 hover:bg-gray-400/10 p-1 rounded-sm">
+                  <TbTargetArrow className="text-2xl mr-2 text-blue-600" />
+                  <div>
+                    <a>Projects</a>
+                    <p className="text-gray-400 text-sm font-light">
+                      For every team or size
+                    </p>
+                  </div>
+                </div>
+                <div className="flex  items-center gap-1 hover:bg-gray-400/10 p-1 rounded-sm">
+                  <BsCalendarDate className="text-2xl mr-2 text-orange-500" />
+                  <div>
+                    <a>Calendar</a>
+                    <p className="text-gray-400 text-sm font-light">
+                      Time and work, together
+                    </p>
+                  </div>
+                </div>
+              </ul>
+              <div className="flex">
+                <ul className="grid p-2 md:w-[400px] lg:w-[240px] hover:cursor-pointer border-r">
+                  <div className="flex  items-center gap-1 hover:bg-gray-400/10 p-1 rounded-sm">
+                    <div>
+                      <a>Template gallery</a>
+                      <p className="text-gray-400 text-sm font-light">
+                        Setup to get you started
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex  items-center gap-1 hover:bg-gray-400/10 p-1 rounded-sm">
+                    <div>
+                      <a>Customer story</a>
+                      <p className="text-gray-400 text-sm font-light">
+                        See how teams us RegNote
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex  items-center gap-1 hover:bg-gray-400/10 p-1 rounded-sm">
+                    <div>
+                      <a>Connections</a>
+                      <p className="text-gray-400 text-sm font-light">
+                        Connect your tools to RegNote
+                      </p>
+                    </div>
+                  </div>
+                </ul>
+              </div>
+              <div>
+                <ul className="grid p-2 md:w-[400px] lg:w-[240px] hover:cursor-pointer border-r">
+                  <div className="flex  items-center gap-1 hover:bg-gray-400/10 p-1 rounded-sm">
+                    <div>
+                      <a>Template gallery</a>
+                      <p className="text-gray-400 text-sm font-light">
+                        Setup to get you started
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center hover:bg-gray-400/10 p-1 rounded-sm">
+                    <div>
+                      <a>Customer story</a>
+                      <p className="text-gray-400 text-sm font-light">
+                        See how teams us RegNote
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center hover:bg-gray-400/10 p-1 rounded-sm">
+                    <div>
+                      <a>Connections</a>
+                      <p className="text-gray-400 text-sm font-light">
+                        Connect your tools to RegNote
+                      </p>
+                    </div>
+                  </div>
+                </ul>
+              </div>
+            </div>
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+          <NavigationMenuTrigger>About</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+            <div>
+              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-row-4 lg:w-[600px]">
+                <div className="flex items-center hover:bg-gray-400/10 p-1 rounded-sm">
+                  <div>
+                    <a>RegNote</a>
+                  </div>
+                </div>
+                <div className="flex items-center hover:bg-gray-400/10 p-1 rounded-sm">
+                  <div>
+                    <a>Calender</a>
+                  </div>
+                </div>
+                <div className="flex items-center hover:bg-gray-400/10 p-1 rounded-sm">
+                  <div>
+                    <a>Web clipper</a>
+                  </div>
+                </div>
+                <div className="flex items-center hover:bg-gray-400/10 p-1 rounded-sm">
+                  <div>
+                    <p className="text-gray-400 text-sm font-light">
+                      RegNote is always at home right
+                    </p>
+                    <a
+                      href=""
+                      className="underline text-gray-400 text-sm font-light"
+                    >
+                      in your browser
+                    </a>
+                  </div>
+                </div>
+              </ul>
+            </div>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Menu</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
               {components.map((component) => (
                 <ListItem
                   key={component.title}
@@ -105,109 +216,55 @@ export function NavigationMenuListItems() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/docs">Docs</Link>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>List</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Chef&apos;s</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[300px] gap-4">
-              <li>
-                <NavigationMenuLink asChild>
-                  <Link href="#">
-                    <div className="font-medium">Components</div>
-                    <div className="text-muted-foreground">
-                      Browse all components in the library.
-                    </div>
-                  </Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link href="#">
-                    <div className="font-medium">Documentation</div>
-                    <div className="text-muted-foreground">
-                      Learn how to use the library.
-                    </div>
-                  </Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link href="#">
-                    <div className="font-medium">Blog</div>
-                    <div className="text-muted-foreground">
-                      Read our latest blog posts.
-                    </div>
-                  </Link>
-                </NavigationMenuLink>
-              </li>
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+              {components.map((component) => (
+                <ListItem
+                  key={component.title}
+                  title={component.title}
+                  href={component.href}
+                >
+                  {component.description}
+                </ListItem>
+              ))}
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Simple</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[200px] gap-4">
-              <li>
-                <NavigationMenuLink asChild>
-                  <Link href="#">Components</Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link href="#">Documentation</Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link href="#">Blocks</Link>
-                </NavigationMenuLink>
-              </li>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>With Icon</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[200px] gap-4">
-              <li>
-                <NavigationMenuLink asChild>
-                  <Link href="#" className="flex-row items-center gap-2">
-                    <CircleHelpIcon />
-                    Backlog
-                  </Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link href="#" className="flex-row items-center gap-2">
-                    <CircleIcon />
-                    To Do
-                  </Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link href="#" className="flex-row items-center gap-2">
-                    <CircleCheckIcon />
-                    Done
-                  </Link>
-                </NavigationMenuLink>
-              </li>
-            </ul>
-          </NavigationMenuContent>
+          <Link href="/docs" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Pricing
+            </NavigationMenuLink>
+          </Link>
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
   )
 }
 
-function ListItem({
-  title,
-  children,
-  href,
-  ...props
-}: React.ComponentPropsWithoutRef<"li"> & { href: string }) {
+const ListItem = React.forwardRef<
+  React.ElementRef<"a">,
+  React.ComponentPropsWithoutRef<"a">
+>(({ className, title, children, ...props }, ref) => {
   return (
-    <li {...props}>
+    <li>
       <NavigationMenuLink asChild>
-        <Link href={href}>
-          <div className="text-sm leading-none font-medium">{title}</div>
-          <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
+        <a
+          ref={ref}
+          className={cn(
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            className
+          )}
+          {...props}
+        >
+          <div className="text-sm font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
           </p>
-        </Link>
+        </a>
       </NavigationMenuLink>
     </li>
   )
-}
+})
+ListItem.displayName = "ListItem"

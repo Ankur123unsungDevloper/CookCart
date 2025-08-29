@@ -3,7 +3,7 @@ import Navbar from "./navbar/navbar";
 
 const MainPage = () => {
   return (
-    <div className="min-h-full flex flex-col">
+    <div className="flex flex-col">
       <Navbar />
       <LandingPage />
     </div>
