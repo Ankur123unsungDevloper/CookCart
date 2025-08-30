@@ -1,3 +1,4 @@
+import Experts from "./_components/experts";
 import Heading from "./_components/heading";
 import Hero from "./_components/hero";
 import Menu from "./_components/menu";
@@ -8,6 +9,7 @@ const LandingPage = () => {
       <Heading />
       <Hero />
       <Menu />
+      <Experts />
     </div>
   );
 };
