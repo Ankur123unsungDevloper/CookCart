@@ -13,11 +13,11 @@ const Experts = () => {
       <div className="w-full flex justify-center items-center flex-col">
         <h2 className="text-[2.5em] font-medium text-[#111]">
           Our Kitchen&nbsp;
-          <span className="text-red-500">E</span>xpert
+          <span className="text-red-500 font-medium text-[1.5em]">E</span>xpert
         </h2>
-        <h2 className="text-[2.5em] font-medium text-[#111] relative left-19 -mt-5 mb-4">
+        <h2 className="text-[2.5em] font-medium text-[#111] relative left-20 -mt-5 mb-4">
           Our&nbsp;
-          <span className="text-red-500">M</span>om&apos;s
+          <span className="text-red-500 font-medium text-[1.5em]">M</span>om&apos;s
         </h2>
         <p className="font-medium text-[#555] mb-4 justify-center text-center">
           Meet the heart and soul behind our delicious, home-cooked meals. Our moms bring decades of culinary expertise, passion, and love to every dish they prepare. From traditional family recipes to innovative healthy options, they ensure that each meal is crafted with care and the finest ingredients. Get to know the amazing
