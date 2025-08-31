@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 
+import { ArrowRight } from "lucide-react";
+
 import Link from "next/link";
 
 const Heading = () => {
@@ -20,6 +22,16 @@ const Heading = () => {
           <Button asChild className="bg-[#ff1a1a] hover:bg-[#e60026]">
             <Link href="/sign-up">
               Add Mom&apos;s Kitchen
+            </Link>
+          </Button>
+          <Button
+            variant="ghost"
+            className="ml-10 hover:underline"
+            asChild
+          >
+            <Link href="/contact-sales">
+              Reserver your socity
+              <ArrowRight className="h-4 w-4 ml-2 hover:underline" strokeWidth={3} />
             </Link>
           </Button>
         </div>

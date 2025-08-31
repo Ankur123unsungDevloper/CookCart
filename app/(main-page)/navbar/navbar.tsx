@@ -20,9 +20,6 @@ const Navbar = () => {
       <Logo />
       <div className="flex items-center justify-center gap-x-5">
         <NavigationMenuListItems />
-        <div className="hidden lg:flex items-center">
-          <div className="w-px h-5 mx-4 bg-gray-200" />
-        </div>
         <div className="md:ml-auto md:justify-end justify-between w-full items-center gap-x-1 relative left-1.5">
           <ActionButton />
         </div>

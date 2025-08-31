@@ -14,7 +14,7 @@ const Menu = () => {
           enu
         </h2>
         <p className="font-medium text-[#555] mb-4">
-          Pick what you love ❤️
+          Pick what you love ❤️ of your mother&apos;s food
         </p>
       </div>
       <div className="py-10">
