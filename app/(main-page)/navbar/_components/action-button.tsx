@@ -23,14 +23,14 @@ const ActionButton = () => {
       <div className="items-center justify-center flex">
           <Button
             size="sm"
-            className="hidden lg:flex text-center items-center justify-center h-[30px] w-[130px] p-4 bg-[#ff1a1a] hover:bg-[#e60026]"
+            className="hidden lg:flex text-center items-center justify-center h-[30px] w-[145px] bg-[#ff1a1a] hover:bg-[#e60026]"
             asChild
           >
             <Link
               href="/sign-up"
-              className="text-sm font-semibold"
+              className="text-sm font-semibold px-6"
             >
-              Get CookCart free
+              Add Mom&apos;s Kitchen
             </Link>
           </Button>
       </div>

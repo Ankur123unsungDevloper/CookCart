@@ -371,7 +371,7 @@ const DropdownMenu = ({
       <div className="pt-12">
         <div className="space-y-4 flex flex-col px-4">
           <Button className="w-full text-xl">
-            Get CookCart free
+            Add Mom&apos;s Kitchen
           </Button>
         </div>
         <div className="space-y-4 flex flex-col px-4 mt-4">

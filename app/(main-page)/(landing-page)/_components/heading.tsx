@@ -19,7 +19,7 @@ const Heading = () => {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
           <Button asChild className="bg-[#ff1a1a] hover:bg-[#e60026]">
             <Link href="/sign-up">
-              Get CookCart free
+              Add Mom&apos;s Kitchen
             </Link>
           </Button>
         </div>
