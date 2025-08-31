@@ -23,7 +23,7 @@ const Experts = () => {
           Meet the heart and soul behind our delicious, home-cooked meals. Our moms bring decades of culinary expertise, passion, and love to every dish they prepare. From traditional family recipes to innovative healthy options, they ensure that each meal is crafted with care and the finest ingredients. Get to know the amazing
         </p>
       </div>
-      <div className="w-full flex flex-wrap gap-6 mt-8 justify-between px-4">
+      <div className="w-full flex flex-wrap-reverse gap-6 mt-8 justify-center px-4">
         {experts.map((expert, idx) => (
           <div
             key={idx}

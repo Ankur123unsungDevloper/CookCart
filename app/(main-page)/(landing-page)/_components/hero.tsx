@@ -3,8 +3,8 @@ import Image from "next/image";
 const Hero = () => {
   return (
     <div className="p-25">
-      <div className="w-full flex justify-between relative">
-        <div className="w-[48%]">
+      <div className="w-full flex flex-col lg:flex-row justify-between relative gap-8">
+        <div className="w-full lg:w-[48%]">
           <h2 className="text-[2em] font-medium mb-4 text-[#111]">
             <span className="text-red-500 font-medium text-[1.5em]">
               A
@@ -19,14 +19,14 @@ const Hero = () => {
             Our mission is to make healthy eating accessible for everyone while supporting local chefs and home cooks. Because we believe food isn’t just about filling your stomach—it’s about feeling good, staying energized, and connecting with the warmth of a real kitchen.
           </p>
         </div>
-        <div className="w-[48%]">
-          <div className="relative w-full h-full">
+        <div className="w-full lg:w-[48%] mt-8 lg:mt-0">
+          <div className="relative w-full h-[300px] lg:h-[400px]">
             <Image
               src="/image/img1.jpg"
               alt="Hero Image"
-              width={600}
-              height={600}
-              className="absolute top-0 left-0 w-full h-full object-cover rounded-lg"
+              fill
+              className="object-cover rounded-lg"
+              sizes="(max-width: 1024px) 100vw, 48vw"
             />
           </div>
         </div>

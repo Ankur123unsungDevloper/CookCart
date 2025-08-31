@@ -1,4 +1,4 @@
-import Footer from "./(landing-page)/_components/footer";
+import Footer from "./footer/footer";
 import LandingPage from "./(landing-page)/page";
 import Navbar from "./navbar/navbar";
 

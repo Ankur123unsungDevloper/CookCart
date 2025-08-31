@@ -31,14 +31,14 @@ const ActionButton = () => {
           <div className="w-[1px] h-[20px] m-[0 10px] bg-gray-200 relative top-[10px] right-2 hidden lg:flex"></div>
         </div>
         <div className="flex lg:space-x-4 items-center justify-center pr-4">
-          <Button variant="ghost" size="sm" className="hidden lg:flex border-none text-md text-white hover:text-black" asChild>
+          <Button size="sm" className="hidden lg:flex border-none text-md" asChild>
             <Link href="/sign-in">
               Log in
             </Link>
           </Button>
           <Button
             size="sm"
-            className="hidden lg:flex text-center items-center justify-center h-[30px] w-[145px] bg-[#ff1a1a] hover:bg-[#e60026]"
+            className="hidden lg:flex text-center items-center justify-center h-[35px] w-[145px] bg-[#ff1a1a] hover:bg-[#e60026]"
             asChild
           >
             <Link

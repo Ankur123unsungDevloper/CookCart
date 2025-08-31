@@ -37,7 +37,7 @@ const Testimonial = () => {
           Our customers love us! Read what they have to say below.
         </p>
       </div>
-      <div className="w-full flex flex-wrap gap-6 mt-8 justify-between px-4">
+      <div className="w-full flex flex-wrap gap-6 mt-8 justify-center px-4">
         {testimonial.map((testi, idx) => (
           <div
             key={idx}
