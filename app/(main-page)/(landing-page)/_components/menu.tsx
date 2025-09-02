@@ -7,7 +7,7 @@ const Menu = () => {
     <div className="py-25">
       <div className="w-full flex justify-center items-center flex-col">
         <h2 className="text-[2em] font-medium text-[#111]">
-          Our
+          Our&nbsp;
           <span className="text-red-500 font-medium text-[1.5em]">
             M
           </span>
