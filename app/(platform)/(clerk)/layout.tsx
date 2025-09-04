@@ -1,6 +1,5 @@
 "use client";
 
-
 const ClerkLayout = ({
   children,
 }: {
@@ -9,7 +8,7 @@ const ClerkLayout = ({
   return (
     <>
       <style>{`
-        /* Import the 'Updock' font from Google Fonts */
+        /* Import the 'Fleur De Leah' font from Google Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap');
 
         /* Define the keyframes for the page-turn animation */
