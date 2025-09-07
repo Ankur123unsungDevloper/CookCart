@@ -25,7 +25,7 @@ const ActionButton = () => {
           <Button variant="ghost" className="hidden lg:flex items-center text-white hover:text-black">
             <Link href="/contact-sales"
             >
-              Reserver your socity
+              Reserver your society
             </Link>
           </Button>
           <div className="w-[1px] h-[20px] m-[0 10px] bg-gray-200 relative top-[10px] right-2 hidden lg:flex"></div>
