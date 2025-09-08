@@ -21,7 +21,7 @@ import { BsCalendarDate } from "react-icons/bs";
 
 const components: { title: string; href: string; description: string }[] = [
   {
-    title: "Alert Dialog",
+    title: "Mom's Food",
     href: "/docs/primitives/alert-dialog",
     description:
       "A modal dialog that interrupts the user with important content and expects a response.",
