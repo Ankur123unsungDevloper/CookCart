@@ -27,7 +27,7 @@ const components: { title: string; href: string; description: string }[] = [
       "A modal dialog that interrupts the user with important content and expects a response.",
   },
   {
-    title: "Hover Card",
+    title: "Home made food",
     href: "/docs/primitives/hover-card",
     description:
       "For sighted users to preview content available behind a link.",
