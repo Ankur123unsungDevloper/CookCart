@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 "use client";
 
 import * as React from "react";
@@ -50,7 +51,7 @@ export function NavigationMenuListItems() {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Home</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px]">
+            <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               {homeFeatures.map((item) => (
                 <ListItem key={item.title} title={item.title} href={item.href}>
                   {item.description}
@@ -64,7 +65,7 @@ export function NavigationMenuListItems() {
         <NavigationMenuItem>
           <NavigationMenuTrigger>About</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px]">
+            <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               {aboutLinks.map((item) => (
                 <ListItem key={item.title} title={item.title} href={item.href}>
                   {item.description}
@@ -78,7 +79,7 @@ export function NavigationMenuListItems() {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Menu</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px]">
+            <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               {menuCategories.map((item) => (
                 <ListItem key={item.title} title={item.title} href={item.href}>
                   {item.description}
@@ -92,7 +93,7 @@ export function NavigationMenuListItems() {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Chefs</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px]">
+            <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               {chefLinks.map((item) => (
                 <ListItem key={item.title} title={item.title} href={item.href}>
                   {item.description}
