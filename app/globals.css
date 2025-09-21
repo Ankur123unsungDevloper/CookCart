@@ -127,3 +127,57 @@
     @apply bg-background text-foreground;
   }
 }
+.person {
+  --transform-speed: 550ms;
+  position: relative;
+  max-width: 15rem;
+  margin-inline: auto;
+}
+
+.container {
+  aspect-ratio: 1 / 1.35;
+  display: grid;
+  align-items: end;
+  border-radius: 0 0 100vw 100vw;
+  overflow: hidden;
+  transition: transform var(--transform-speed) ease;
+}
+
+.container:hover {
+  transform: scale(1.1);
+}
+
+.circle {
+  position: absolute;
+  inset: auto 0 0;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 4px solid pink;
+  margin-inline: auto;
+  object-fit: cover;
+}
+
+.img {
+  position: relative;
+  width: 300px;
+  bottom: 40px;
+  right: 10px;
+  z-index: 2;
+  transform: scale(1.9);
+  transition: transform calc(var(--transform-speed) * 1.2) ease;
+}
+#img2 {
+  left: 4px;
+}
+#img3 {
+  width: 50%;
+  left: 50px;
+  bottom: 37px;
+}
+#img4 {
+  left: 20px;
+}
+.inout:hover .img {
+  transform: scale(1.8) translateY(-1.5rem);
+}
