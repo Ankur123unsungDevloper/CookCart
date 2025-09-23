@@ -163,15 +163,14 @@
   bottom: 40px;
   right: 10px;
   z-index: 2;
-  transform: scale(1.9);
+  transform: scale(2);
   transition: transform calc(var(--transform-speed) * 1.2) ease;
 }
 #img2 {
   left: 4px;
 }
 #img3 {
-  left: 50px;
-  bottom: 37px;
+  bottom: 94px;
 }
 #img4 {
   left: 20px;
