@@ -10,7 +10,7 @@ const experts = [
 
 const Experts = () => {
   return (
-    <div className="p-25">
+    <div className="px-25 py-10">
       <div className="w-full flex justify-center items-center flex-col">
         <h2 className="text-[2.5em] font-medium text-[#111]">
           Our Kitchen&nbsp;

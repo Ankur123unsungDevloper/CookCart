@@ -29,15 +29,20 @@ const MenuFoodItems = () => {
       >
         {images.map((img, idx) => (
           <SwiperSlide key={idx}>
-            <div className="flex flex-col items-center h-[200px] rounded-full">
-              <Image
-                src={img.src}
-                width={160}
-                height={160}
-                alt={img.alt}
-                className="rounded-full"
-                unoptimized
-              />
+            <div className="flex flex-col items-center">
+              {/* Image container */}
+              <div className="w-40 h-40 rounded-full overflow-hidden flex items-center justify-center">
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  width={160}
+                  height={160}
+                  className="object-cover w-full h-full"
+                  unoptimized
+                />
+              </div>
+
+              {/* Label */}
               <span className="mt-2 text-base font-medium text-gray-800 text-center">
                 {img.label}
               </span>
