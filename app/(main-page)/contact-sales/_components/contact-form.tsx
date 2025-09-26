@@ -19,51 +19,37 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
-
-// Use Sonner for toast notifications
 import { toast } from "sonner";
 
 const FormSchema = z.object({
-  first_name: z.string(),
-  last_name: z.string(),
-  email: z.string().email(),
-  job_title: z.string(),
-  company_name: z.string(),
-  help: z.enum([
-    "Evaluate CookCart for my society",
-    "Learn More",
-    "Get a Quote",
-    "How to use CookCart",
+  society_name: z.string().min(1, "Society/Apartment name is required"),
+  location: z.string().min(1, "Location is required"),
+  representative_name: z.string().min(1, "Contact person is required"),
+  phone: z.string().min(10, "Phone number is required"),
+  email: z.string().email("Invalid email"),
+  no_of_families: z.enum([
+    "1-2",
+    "3-5",
+    "6-8",
+    "9-10",
+    "11-12",
+    "12+"
+  ]),
+  need: z.enum([
+    "Start a Society Kitchen",
+    "Evaluate CookCart services",
+    "Bulk Meals for Events",
+    "Daily Meals Subscription",
     "Other",
   ]),
-  company_size: z.enum([
-    "1-10",
-    "11-50",
-    "51-200",
-    "201-500",
-    "501-1000",
-    "1000+",
-  ]),
-  info: z.string(),
+  message: z.string().optional(),
+  terms: z.boolean().refine((val) => val === true, {
+    message: "You must agree before submitting",
+  }),
 });
-type FormValues = {
-  first_name: string;
-  last_name: string;
-  email: string;
-  job_title: string;
-  company_name: string;
-  help:
-    | "Evaluate CookCart for my society"
-    | "Learn More"
-    | "Get a Quote"
-    | "How to use CookCart"
-    | "Other";
-  company_size: "1-10" | "11-50" | "51-200" | "201-500" | "501-1000" | "1000+";
-  info: string;
-  terms: boolean;
-};
+
+type FormValues = z.infer<typeof FormSchema>;
 
 const ContactForm = () => {
   const [loading, setLoading] = useState(false);
@@ -72,18 +58,19 @@ const ContactForm = () => {
   const form = useForm<FormValues>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      first_name: "",
-      last_name: "",
+      society_name: "",
+      location: "",
+      representative_name: "",
+      phone: "",
       email: "",
-      job_title: "",
-      company_name: "",
-      help: "Learn More",
-      company_size: "1-10",
-      info: "",
+      no_of_families: "1-2",
+      need: "Start a Society Kitchen",
+      message: "",
+      terms: false,
     },
   });
 
-  async function onSubmit(data: z.infer<typeof FormSchema>) {
+  async function onSubmit(data: FormValues) {
     try {
       setLoading(true);
       const res = await fetch("/api/contact", {
@@ -92,13 +79,11 @@ const ContactForm = () => {
         body: JSON.stringify(data),
       });
 
-      if (!res.ok) {
-        throw new Error("Something went wrong");
-      }
+      if (!res.ok) throw new Error("Something went wrong");
 
       setSubmitted(true);
       toast.success("Submitted successfully! We'll contact you soon.");
-    } catch (error) {
+    } catch {
       toast.error("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
@@ -106,192 +91,195 @@ const ContactForm = () => {
   }
 
   return (
-    <div
-      style={{
-        height: "100%",
-        width: "100%",
-        position: "relative",
-        overflow: "hidden",
-      }}
-      className="md:flex justify-center pt-20 px-8"
-    >
-      <div>
-        <div className="text-6xl font-bold w-2/3 pr-10 text-white">
-          Talk to our Team to get your Society kitchen started
+    <div className="flex justify-start items-start py-20 px-6">
+      <div className="max-w-5xl w-full flex flex-col items-start gap-10">
+        {/* Left side - Heading & Subtext */}
+        <div className="text-white max-w-2xl">
+          <h2 className="text-4xl md:text-5xl font-bold leading-snug">
+            Connect your <span className="text-yellow-200">Society</span> with
+            CookCart 🚀
+          </h2>
+          <p className="mt-4 text-lg opacity-90">
+            Fill out the details below and let’s bring freshly cooked,
+            home-style food to every family in your society.  
+          </p>
         </div>
-        <div className="py-4 text-white">
-          Fill out the form and we will get in touch with you shortly.
-        </div>
+
+        {/* Left side - Form */}
         <Form {...form}>
           {!submitted ? (
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-              <div className="md:flex flex flex-col gap-6">
-                <div className="md:flex flex flex-row gap-10 items-start">
-                  <FormField
-                    control={form.control}
-                    name="first_name"
-                    render={({ field }) => (
-                      <FormItem className="items-center justify-center w-full">
-                        <FormLabel>
-                          First name
-                          <span className="text-red-500">*</span>
-                        </FormLabel>
-                        <FormControl>
-                          <Input {...field} />
-                        </FormControl>
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="last_name"
-                    render={({ field }) => (
-                      <FormItem className="items-center justify-center w-full">
-                        <FormLabel>
-                          Last name
-                          <span className="text-red-500">*</span>
-                        </FormLabel>
-                        <FormControl>
-                          <Input {...field} />
-                        </FormControl>
-                      </FormItem>
-                    )}
-                  />
-                </div>
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="bg-white rounded-2xl shadow-lg p-8 space-y-6 w-full md:w-3/4"
+            >
+              {/* Society Name */}
+              <FormField
+                control={form.control}
+                name="society_name"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>
+                      Society / Apartment Name <span className="text-red-500">*</span>
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        required
+                        className="border-gray-300 focus:border-[#ff0157] focus:ring-[#ff0157]"
+                      />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+
+              {/* Location */}
+              <FormField
+                control={form.control}
+                name="location"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>
+                      Location / City <span className="text-red-500">*</span>
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        required
+                        className="border-gray-300 focus:border-[#ff0157] focus:ring-[#ff0157]"
+                      />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+
+              {/* Contact Person */}
+              <FormField
+                control={form.control}
+                name="representative_name"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>
+                      Contact Person <span className="text-red-500">*</span>
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        required
+                        className="border-gray-300 focus:border-[#ff0157] focus:ring-[#ff0157]"
+                      />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+
+              {/* Phone & Email */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <FormField
+                  control={form.control}
+                  name="phone"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>
+                        Phone Number <span className="text-red-500">*</span>
+                      </FormLabel>
+                      <FormControl>
+                        <Input
+                          {...field}
+                          type="tel"
+                          required
+                          className="border-gray-300 focus:border-[#ff0157] focus:ring-[#ff0157]"
+                        />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+
                 <FormField
                   control={form.control}
                   name="email"
                   render={({ field }) => (
-                    <FormItem className="items-center justify-center w-full">
+                    <FormItem>
                       <FormLabel>
-                        Email
-                        <span className="text-red-500">*</span>
+                        Email <span className="text-red-500">*</span>
                       </FormLabel>
                       <FormControl>
-                        <Input {...field} />
+                        <Input
+                          {...field}
+                          type="email"
+                          required
+                          className="border-gray-300 focus:border-[#ff0157] focus:ring-[#ff0157]"
+                        />
                       </FormControl>
                     </FormItem>
                   )}
                 />
-                <FormField
-                  control={form.control}
-                  name="job_title"
-                  render={({ field }) => (
-                    <FormItem className="items-center justify-center w-full">
-                      <FormLabel>Job title</FormLabel>
-                      <FormControl>
-                        <Input {...field} />
-                      </FormControl>
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="company_name"
-                  render={({ field }) => (
-                    <FormItem className="items-center justify-center w-full">
-                      <FormLabel>
-                        Society name
-                        <span className="text-red-500">*</span>
-                      </FormLabel>
-                      <FormControl>
-                        <Input {...field} />
-                      </FormControl>
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="company_size"
-                  render={({ field }) => (
-                    <FormItem className="items-center justify-center w-full">
-                      <FormLabel>
-                        Society size
-                        <span className="text-red-500">*</span>
-                      </FormLabel>
-                      <Select
-                        onValueChange={field.onChange}
-                        defaultValue={field.value}
-                      >
-                        <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select an option" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          <SelectItem value="1-10">1-10</SelectItem>
-                          <SelectItem value="11-50">11-50</SelectItem>
-                          <SelectItem value="51-200">51-200</SelectItem>
-                          <SelectItem value="201-500">201-500</SelectItem>
-                          <SelectItem value="501-1000">501-1000</SelectItem>
-                          <SelectItem value="1000+">1000+</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="help"
-                  render={({ field }) => (
-                    <FormItem className="items-center justify-center w-full">
-                      <FormLabel>How can we help?</FormLabel>
-                      <Select
-                        onValueChange={field.onChange}
-                        defaultValue={field.value}
-                      >
-                        <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select an option" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          <SelectItem value="Evaluate CookCart for my society">
-                            Evaluate CookCart for my society
-                          </SelectItem>
-                          <SelectItem value="Learn More">Learn More</SelectItem>
-                          <SelectItem value="Get a Quote">Get a Quote</SelectItem>
-                          <SelectItem value="How to use CookCart">
-                            How to use CookCart
-                          </SelectItem>
-                          <SelectItem value="Other">Other</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="info"
-                  render={({ field }) => (
-                    <FormItem className="items-center justify-center w-full">
-                      <FormLabel className="w-60 text-sm">
-                        Anything else?
-                      </FormLabel>
-                      <FormControl>
-                        <Textarea style={{ height: "100px" }} {...field} />
-                      </FormControl>
-                    </FormItem>
-                  )}
-                />
-                <div className="flex gap-4 items-center">
-                  <Checkbox className="text-[#6c6684]" />
-                  <span className="text-gray-500 text-sm">
-                    I agree to the terms and conditions
-                  </span>
-                </div>
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="bg-red-500 text-white px-6 py-2 rounded font-semibold hover:bg-red-600 transition"
-                >
-                  {loading ? "Submitting..." : "Submit"}
-                </button>
               </div>
+
+              {/* No of Moms */}
+              <FormField
+                control={form.control}
+                name="no_of_families"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>
+                      No. of Families in Society
+                    </FormLabel>
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <FormControl>
+                        <SelectTrigger className="border-gray-300 focus:border-[#ff0157] focus:ring-[#ff0157]">
+                          <SelectValue placeholder="Select size" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="1-2">1-2</SelectItem>
+                        <SelectItem value="3-5">3-5</SelectItem>
+                        <SelectItem value="6-8">6-8</SelectItem>
+                        <SelectItem value="9-10">9-10</SelectItem>
+                        <SelectItem value="10-12">10-12</SelectItem>
+                        <SelectItem value="12+">12+</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </FormItem>
+                )}
+              />
+
+              {/* Terms */}
+              <FormField
+                control={form.control}
+                name="terms"
+                render={({ field }) => (
+                  <FormItem>
+                    <div className="flex items-center gap-3">
+                      <Checkbox
+                        checked={field.value}
+                        onCheckedChange={field.onChange}
+                        required
+                        className="border-gray-400 data-[state=checked]:bg-[#ff0157] data-[state=checked]:border-[#ff0157]"
+                      />
+                      <span className="text-sm text-gray-600">
+                        I agree to the{" "}
+                        <a href="/terms" className="text-[#ff0157] hover:underline">
+                          terms & conditions
+                        </a>
+                      </span>
+                    </div>
+                  </FormItem>
+                )}
+              />
+
+              {/* Submit */}
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full bg-[#ff0157] text-white py-3 rounded-lg font-semibold hover:bg-red-600 transition"
+              >
+                {loading ? "Submitting..." : "Register Society"}
+              </button>
             </form>
           ) : (
-            <div className="text-green-600 font-semibold text-lg">
-              Thank you for contacting us! We will get back to you shortly.
+            <div className="bg-white p-8 rounded-xl shadow-lg text-center text-green-600 font-semibold text-lg w-full md:w-3/4">
+              ✅ Thank you!  
+              <br /> We’ll get in touch with your society shortly.
             </div>
           )}
         </Form>

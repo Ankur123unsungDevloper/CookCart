@@ -5,10 +5,10 @@ import ContactForm from "./_components/contact-form";
 const ContactSalesPage = () => {
   return (
     <div
-      className="p-25 bg-cover bg-center bg-no-repeat"
+      className="bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url('/backgroundImage/bg4.jpg')` }}
     >
-      <div>
+      <div className="flex flex-col">
         <Navbar />
         <ContactForm />
         <Footer />
