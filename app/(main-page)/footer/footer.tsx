@@ -1,7 +1,8 @@
 import Image from "next/image";
-import { Globe, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube } from "lucide-react";
+import { MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube } from "lucide-react";
 import CopyRight from "./_components/copyright";
 import { Logo } from "@/components/logo";
+import Language from "./_components/language";
 
 const Footer = () => {
   return (
@@ -20,15 +21,12 @@ const Footer = () => {
               <MapPin size={16} />
               India
             </button>
-            <button className="flex items-center gap-2 border border-gray-300 rounded-lg px-3 py-2 text-sm hover:bg-gray-100">
-              <Globe size={16} />
-              English
-            </button>
+            <Language />
           </div>
         </div>
 
         {/* BOTTOM ROW */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-30">
           {/* About */}
           <div>
             <h3 className="font-semibold mb-3">About</h3>
