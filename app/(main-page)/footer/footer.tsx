@@ -28,7 +28,7 @@ const Footer = () => {
         </div>
 
         {/* BOTTOM ROW */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About */}
           <div>
             <h3 className="font-semibold mb-3">About</h3>
