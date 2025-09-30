@@ -13,9 +13,9 @@ const Language = () => {
   return (
     <div className="flex items-center gap-2 border border-gray-300 rounded-lg px-3 py-2 text-sm hover:bg-gray-100">
       <DropdownMenu>
-        <DropdownMenuTrigger className="flex items-center gap-2">
-          <IoGlobeOutline className="h-5 w-5" />
-          language
+        <DropdownMenuTrigger className="flex items-center gap-2 text-lg">
+          <IoGlobeOutline className="h-6 w-6" />
+          English
           <IoIosArrowDown />
         </DropdownMenuTrigger>
         <DropdownMenuContent>

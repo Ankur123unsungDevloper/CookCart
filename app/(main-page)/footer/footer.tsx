@@ -1,8 +1,13 @@
 import Image from "next/image";
-import { MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube } from "lucide-react";
-import CopyRight from "./_components/copyright";
+import { FaFacebook, FaXTwitter } from "react-icons/fa6";
+import { FaInstagram } from "react-icons/fa";
+import { CiLinkedin } from "react-icons/ci";
+import { IoLogoYoutube } from "react-icons/io5";
 import { Logo } from "@/components/logo";
 import Language from "./_components/language";
+import Country from "./_components/country";
+import CopyRight from "./_components/copyright";
+import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   return (
@@ -17,16 +22,13 @@ const Footer = () => {
 
           {/* Country + Language */}
           <div className="flex gap-4">
-            <button className="flex items-center gap-2 border border-gray-300 rounded-lg px-3 py-2 text-sm hover:bg-gray-100">
-              <MapPin size={16} />
-              India
-            </button>
+            <Country />
             <Language />
           </div>
         </div>
 
         {/* BOTTOM ROW */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-30">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* About */}
           <div>
             <h3 className="font-semibold mb-3">About</h3>
@@ -64,21 +66,48 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-3">Social Links</h3>
             <div className="flex gap-4 mb-4">
-              <a href="#" className="text-gray-600 hover:text-[#ff0157]"><Facebook size={20} /></a>
-              <a href="#" className="text-gray-600 hover:text-[#ff0157]"><Twitter size={20} /></a>
-              <a href="#" className="text-gray-600 hover:text-[#ff0157]"><Instagram size={20} /></a>
-              <a href="#" className="text-gray-600 hover:text-[#ff0157]"><Linkedin size={20} /></a>
-              <a href="#" className="text-gray-600 hover:text-[#ff0157]"><Youtube size={20} /></a>
+              <a href="#" className="text-gray-600 hover:text-[#010eff]">
+                <FaFacebook size={20} />
+              </a>
+              <a href="#" className="text-gray-600 hover:text-[#000000]">
+                <FaXTwitter size={20} />
+              </a>
+              <a href="#" className="text-gray-600 hover:text-[#ff0157]">
+                <FaInstagram size={20} />
+              </a>
+              <a href="#" className="text-gray-600 hover:text-[#0109ff]">
+                <CiLinkedin size={20} />
+              </a>
+              <a href="#" className="text-gray-600 hover:text-[#ff0101]">
+                <IoLogoYoutube size={20} />
+              </a>
             </div>
-            <div className="flex flex-col gap-3">
-              <Image src="/appstore.png" alt="App Store" width={140} height={40} />
-              <Image src="/googleplay.png" alt="Google Play" width={140} height={40} />
+            <div className="flex flex-col items-start gap-y-18 relative w-50 h-30 top-10">
+              <Button variant="ghost" className="p-0 w-50 h-0 relative">
+                <Image 
+                  src="/icons/appstore.png" 
+                  alt="App Store" 
+                  width={200}
+                  height={40} 
+                  className="w-full h-auto"
+                />
+              </Button>
+
+              <Button variant="ghost" className="p-0 w-50 h-0 relative">
+                <Image 
+                  src="/icons/playstore.png" 
+                  alt="Google Play" 
+                  width={200} 
+                  height={40} 
+                  className="w-full h-auto"
+                />
+              </Button>
             </div>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="border-t border-gray-200 mt-10 pt-6">
+        <div className="border-t border-gray-200 mt-10">
           <CopyRight />
         </div>
       </div>
