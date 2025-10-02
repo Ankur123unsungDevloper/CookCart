@@ -26,12 +26,12 @@ const Heading = () => {
           </Button>
           <Button
             variant="ghost"
-            className="ml-10 hover:underline"
+            className="ml-10"
             asChild
           >
             <Link href="/contact-sales">
               Reserver your socity
-              <ArrowRight className="h-4 w-4 ml-2 hover:underline" strokeWidth={3} />
+              <ArrowRight className="h-4 w-4 ml-2" strokeWidth={3} />
             </Link>
           </Button>
         </div>
