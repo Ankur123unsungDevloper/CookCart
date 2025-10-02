@@ -1,9 +1,11 @@
+import Footer from "./_components/footer";
+import Heading from "./_components/heading";
+
 const DocumentsPage = () => {
   return (
     <div>
-      navbar
-      Documents Page
-      footer
+      <Heading />
+      <Footer />
     </div>
   );
 };

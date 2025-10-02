@@ -1,9 +1,13 @@
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
+
 import { FaFacebook, FaXTwitter } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 import { CiLinkedin } from "react-icons/ci";
 import { IoLogoYoutube } from "react-icons/io5";
+
+import { Button } from "@/components/ui/button";
+
+import Image from "next/image";
+import Link from "next/link";
 
 const SocialLinks = () => {
   return (
@@ -26,29 +30,34 @@ const SocialLinks = () => {
           <IoLogoYoutube size={22} />
         </a>
       </div>
-      <div className="flex flex-col items-start gap-y-18 relative w-50 h-30 top-10">
-        <Button variant="ghost" className="p-0 w-50 h-0 relative">
-          <Image 
-            src="/icons/appstore.png" 
-            alt="App Store" 
+      <div className="flex flex-col items-start gap-y-8 relative w-[220px] top-10">
+      {/* App Store */}
+      <Link href="/appstore" passHref>
+        <Button variant="ghost" className="p-0 w-full h-0 relative">
+          <Image
+            src="/icons/appstore.png"
+            alt="App Store"
             width={205}
-            height={40} 
+            height={40}
             className="w-full h-auto"
           />
         </Button>
+      </Link>
 
-        <Button variant="ghost" className="p-0 w-50 h-0 relative">
-          <Image 
-            src="/icons/playstore.png" 
-            alt="Google Play" 
-            width={200} 
-            height={40} 
+      {/* Play Store */}
+      <Link href="/playstore" passHref>
+        <Button variant="ghost" className="p-0 w-full h-0 relative">
+          <Image
+            src="/icons/playstore.png"
+            alt="Google Play"
+            width={200}
+            height={40}
             className="w-full h-auto"
           />
         </Button>
-      </div>
+      </Link>
     </div>
-    
+    </div>
   );
 };
 
