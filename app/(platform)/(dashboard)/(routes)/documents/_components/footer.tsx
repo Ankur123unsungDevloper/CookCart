@@ -46,7 +46,7 @@ const Footer = () => {
                   India
                   <IoIosArrowDown />
                 </DropdownMenuTrigger>
-                <DropdownMenuContent>
+                <DropdownMenuContent className="bg-black text-white hover:bg-gray-900">
                   <DropdownMenuLabel className="flex items-center gap-2">
                     <Image
                       src="/icons/india.png"
@@ -78,7 +78,7 @@ const Footer = () => {
                   English
                   <IoIosArrowDown />
                 </DropdownMenuTrigger>
-                <DropdownMenuContent>
+                <DropdownMenuContent className="bg-black text-white hover:bg-gray-900">
                   <DropdownMenuLabel>English</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem>Profile</DropdownMenuItem>
@@ -146,7 +146,7 @@ const Footer = () => {
                 <IoLogoYoutube size={22} />
               </a>
             </div>
-            <div className="flex flex-col items-start relative w-50 h-30">
+            <div className="flex flex-col items-start relative w-50 h-30 gap-y-5">
               {/* App Store Button */}
               <Link href="/sign-up" className="transition-transform duration-300 hover:scale-110">
                 <Image
