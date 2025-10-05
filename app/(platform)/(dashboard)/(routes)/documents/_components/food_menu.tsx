@@ -12,12 +12,12 @@ const FoodMenu = () => {
     const rows = [];
     for (let i = 1; i <= 3; i++) {
       rows.push(
-        <div key={i} className="row">
+        <div key={i} className="relative w-[100vw] my-[1em] mx-0 flex justify-center gap-[2em]">
           <div className="card card-left">
-            <img src={`/experts/expert${2 * i - 1}.jpg`} alt="" />
+            <img className="w-full h-full object-cover" src={`/experts/expert${2 * i - 1}.jpg`} alt="" />
           </div>
           <div className="card card-right">
-            <img src={`/experts/expert${2 * i}.jpg`} alt="" />
+            <img className="w-full h-full object-cover" src={`/experts/expert${2 * i}.jpg`} alt="" />
           </div>
         </div>
       );
@@ -28,15 +28,15 @@ const FoodMenu = () => {
   return (
     <>
       <ReactLenis root>
-        <section className="hero">
+        <section className="relative w-full flex justify-center items-center h-[100vh]">
           <div className="img">
-            <img src="/icons/india.png" alt="" />
+            <img className="w-1/2 h-full object-cover aspect-square" src="/icons/india.png" alt="" />
           </div>
         </section>
-        <section className="">
+        <section className="relative w-[100vw] h-[150vh] flex flex-col justify-center items-center">
           <div className="main-content">
             <div className="logo">
-              <img src="/logo.png" alt="Logo" />
+              <img className="w-full h-full object-cover" src="/logo.png" alt="Logo" />
             </div>
 
             <div className="copy">
@@ -60,7 +60,7 @@ const FoodMenu = () => {
 
           {generateRows()}
         </section>
-        <section className="footer">
+        <section className="relative w-full flex justify-center items-start h-[50vh]">
           <Link href="#" className="footer-link">link in description</Link>
         </section>
       </ReactLenis>
