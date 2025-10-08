@@ -52,14 +52,6 @@ const FoodMenu = () => {
       });
     });
 
-    // Logo Animation
-    gsap.to(".logo", {
-      scale: 1,
-      duration: 0.5,
-      ease: "power1.out",
-      scrollTrigger: ScrollTriggerSettings,
-    });
-
     // Text Animation
     gsap.to(".line p", {
       y: 0,
@@ -116,17 +108,9 @@ const FoodMenu = () => {
   return (
     <ReactLenis root>
       {/* MAIN SECTION */}
-      <section className="main-section relative w-screen h-[150vh] flex flex-col justify-center items-center bg-[#111] text-white">
+      <section className="main-section relative w-screen h-[150vh] flex flex-col justify-center items-center bg-white text-black">
         {/* Floating Logo and Text */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-          <div className="logo w-[150px] h-[150px] border-2 border-white rounded-full overflow-hidden scale-0">
-            <img
-              src="/logo.png"
-              alt="Logo"
-              className="w-full h-full object-cover"
-            />
-          </div>
-
           <div className="line my-8 flex flex-col justify-center items-center">
             {["Delicious Meals", "Made with Love", "Just for You"].map(
               (text, i) => (

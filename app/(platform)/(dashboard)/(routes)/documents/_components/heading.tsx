@@ -43,6 +43,7 @@ const Heading = () => {
           </Link>
         </div>
       </div>
+      {/* Scroll down button */}
     </div>
   );
 };
