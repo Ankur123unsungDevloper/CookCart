@@ -2,6 +2,7 @@ import Heading from "./_components/heading";
 import Hero from "./_components/hero";
 import FoodMenu from "./_components/food_menu";
 import Footer from "./_components/footer";
+import AppAds from "./_components/appads";
 
 const DocumentsPage = () => {
   return (
@@ -9,6 +10,7 @@ const DocumentsPage = () => {
       <Heading />
       <Hero />
       <FoodMenu />
+      <AppAds />
       <Footer />
     </div>
   );
