@@ -36,7 +36,7 @@ const AppAds = () => {
         trigger: ".app-ads-section",
         start: "top 70%", // phone starts moving when section is halfway visible
         end: "bottom 50%", // finishes moving near the middle of viewport
-        scrub: 1.5, // slow, smooth scroll sync
+        scrub: 5, // slow, smooth scroll sync
       },
     }
   );
@@ -94,7 +94,7 @@ const AppAds = () => {
             />
 
             {/* Scheduler card inside phone — absolute and centered */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 sm:w-42 md:w-27 bg-white rounded-2xl shadow-xl flex flex-col items-center p-3">
+            <div className="absolute top-30% left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 sm:w-42 md:w-27 bg-white rounded-2xl shadow-xl flex flex-col items-center p-3">
               {/* small calendar icon placeholder */}
               <div className="w-10 h-12 rounded-md bg-white flex items-center justify-center mb-2">
                 <img src="/icons/calendar-small.png" alt="calendar" className="w-10 h-10" />
