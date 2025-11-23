@@ -86,7 +86,7 @@ const AppAds = () => {
           </div>
 
           {/* Phone Center - wrapped so we can animate its wrapper */}
-          <div className="app-phone-wrap relative z-10 flex items-center justify-center w-[240px] sm:w-[320px] md:w-[360px]">
+          <div className="app-phone-wrap relative z-10 flex items-center justify-center w-[240px] sm:w-[340px] md:w-[380px]">
             <img
               src="/icons/phone.png"
               alt="App Phone"
