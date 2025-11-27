@@ -97,7 +97,7 @@ const ContactForm = () => {
         <div className="text-white max-w-2xl">
           <h2 className="text-4xl md:text-5xl font-bold leading-snug">
             Connect your <span className="text-yellow-200">Society</span> with
-            CookCart 🚀
+            CookCart
           </h2>
           <p className="mt-4 text-lg opacity-90">
             Fill out the details below and let’s bring freshly cooked,
@@ -110,7 +110,7 @@ const ContactForm = () => {
           {!submitted ? (
             <form
               onSubmit={form.handleSubmit(onSubmit)}
-              className="bg-white rounded-2xl shadow-lg p-8 space-y-6 w-full md:w-3/4"
+              className="bg-white rounded-2xl shadow-lg p-8 space-y-6 w-full md:w-[63%]"
             >
               {/* Society Name */}
               <FormField
