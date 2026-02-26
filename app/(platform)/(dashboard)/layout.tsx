@@ -1,3 +1,6 @@
+import { FoodProfileImage } from "@/components/foodprofileimg-model";
+import { RegisterModal } from "@/components/register-modal";
+
 const DashBoardLayout = ({
   children,
 }: {
@@ -6,6 +9,8 @@ const DashBoardLayout = ({
   return (
     <div>
       {children}
+      <RegisterModal />
+      <FoodProfileImage />
     </div>
   );
 };

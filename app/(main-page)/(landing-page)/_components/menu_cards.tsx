@@ -8,7 +8,7 @@ import { ReactLenis } from "lenis/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Hero = () => {
+const Menu_Cards = () => {
   // 🟢 1. SCROLL IMAGE ANIMATION
   useEffect(() => {
     const ScrollTriggerSettings = {
@@ -187,4 +187,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default Menu_Cards;
